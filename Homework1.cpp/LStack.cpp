@@ -46,7 +46,6 @@ int main()
 	ls.print();
 	cout << endl;
 
-	system("pause");
 	return 0;
 }
 
