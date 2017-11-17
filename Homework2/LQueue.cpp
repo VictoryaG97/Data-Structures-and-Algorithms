@@ -86,7 +86,7 @@ public:
 	{
 		if (empty()) {
 			cerr << "Empty Queue";
-			return 0;
+			return T();
 		}
 		return front->data;
 	}
