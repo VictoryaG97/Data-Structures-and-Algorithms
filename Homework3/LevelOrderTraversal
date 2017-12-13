@@ -1,0 +1,31 @@
+struct node
+{
+    int data;
+    node* left;
+    node* right;
+}
+
+void levelOrder(node * root) {
+  queue<node*> q;
+
+	if (root) {
+		q.push(root);
+		cout << root->data << " ";
+	}
+	else cout << "NULL";
+
+	while (!q.empty()) {
+		const node * const tempNode = q.front();
+		q.pop();
+
+		if (tempNode->left) {
+			q.push(tempNode->left);
+			cout << tempNode->left->data << " ";
+		}
+		if (tempNode->right) {
+			q.push(tempNode->right);
+			cout << tempNode->right->data << " ";
+		}
+	}
+  
+}
