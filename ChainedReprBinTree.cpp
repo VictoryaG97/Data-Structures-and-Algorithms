@@ -84,7 +84,7 @@ void TABinTree<T>::CopyBinTree(TABinTree<T> const &ot)
 	values = new T[capacity];
 	Copy(values, ot.values);
 	leftSubTree = new T[capacity];
-	Copy(ledtSubTree, ot.leftSubTree);
+	Copy(leftSubTree, ot.leftSubTree);
 	rightSubTree = new T[capacity];
 	Copy(rightSubTree, ot.rightSubTree);
 }
@@ -138,7 +138,7 @@ T TABinTree<T>::GetRoot() const
 template<typename T>
 bool TABinTree<T>::empty()
 {
-	return indexA == -1;
+	return indexV == -1;
 }
 
 template<typename T>
