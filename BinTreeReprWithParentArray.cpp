@@ -16,7 +16,6 @@ class PABinTree
 	void Copy(T *&, T const*);
 	void CopyBinTree(PABinTree<T> const&);
 	void CreateBinTree(T prev = 0);
-	void pr(T);
 
 public:
 	PABinTree();
@@ -26,7 +25,6 @@ public:
 
 	T GetRoot() const;
 	bool empty();
-	void print();
 	void printArray();
 	void Create();
 };
@@ -117,12 +115,6 @@ void PABinTree<T>::CreateBinTree(T prev = 0)
 }
 
 template<typename T>
-void PABinTree<T>::pr(T r)
-{
-	
-}
-
-template<typename T>
 PABinTree<T>::PABinTree() : index(-1), hIndex(0), capacity(INITIAL)
 {
 	p = new T[capacity];
@@ -163,12 +155,6 @@ template<typename T>
 bool PABinTree<T>::empty()
 {
 	return index == -1;
-}
-
-template<typename T>
-void PABinTree<T>::print()
-{
-	pr(p[1]);
 }
 
 template<typename T>
