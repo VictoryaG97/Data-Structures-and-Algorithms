@@ -36,7 +36,7 @@ public:
 template<typename T>
 bool TABinTree<T>::full() const
 {
-	return indexA == capacity - 1;
+	return indexV == capacity - 1;
 }
 
 template<typename T>
@@ -176,6 +176,7 @@ void TABinTree<T>::Create()
 
 	cout << "root: ";
 	cin >> x;
+	if (full()) resize();
 	values[indexV] = x;
 	rightSubTree[indexR] = -1;
 	indexV++;
