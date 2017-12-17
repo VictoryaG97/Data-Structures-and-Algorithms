@@ -7,7 +7,8 @@ const int INITIAL = 16;
 template <typename T>
 class TABinTree
 {
-	T *values, *leftSubTree, *rightSubTree;
+	T *values;
+	int *leftSubTree, *rightSubTree;
 	int rootIndex, capacity;
 	int indexV = -1, indexL = -1, indexR = -1;
 
