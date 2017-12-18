@@ -1,0 +1,16 @@
+
+struct Node
+{
+   int inf;
+   Node *left, *right;
+}
+
+
+Node *LCA(Node *root, int v1,int v2)
+{
+    if (root->inf > v1 && root->inf > v2)
+		  root = LCA(root->left, v1, v2);
+	  if (root->inf < v1 && root->inf < v2)
+		  root = LCA(root->right, v1, v2);
+	return root; 
+}
