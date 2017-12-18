@@ -1,0 +1,23 @@
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+ }
+ 
+bool checkBST(Node* root) {
+    if (root) {
+		if (root->left) {
+			if (root->left->data < root->data)
+				return checkBST(root->left);
+			else
+				return 0;
+		}
+		if (root->right) {
+			if (root->right->data > root->data)
+				return checkBST(root->right);
+			else
+				return 0;
+		}
+	}
+	return 1;
+}
