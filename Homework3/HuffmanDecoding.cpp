@@ -13,19 +13,20 @@ struct node
 
 void decode_huff(node *root, string s)
 {
-	string decoded;
+	sstring decoded = "";
 	node *temp = root;
 	int i = 0;
 	while (i < s.length()) {
-		if (s[i] == 0)
+		if (s[i] == '0')
 			temp = temp->left;
-		else if (s[i] == 1)
+		else if (s[i] == '1')
 			temp = temp->right;
 
 		if (!temp->left && !temp->right) {
 			decoded += temp->data;
 			temp = root;
 		}
+		i++;
 	}
 	cout << decoded << endl;
 }
