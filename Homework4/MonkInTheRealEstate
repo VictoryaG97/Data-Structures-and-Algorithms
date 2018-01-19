@@ -1,41 +1,55 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-bool containts(int *a, int n, int element)
+int countOfCities(IntGraph &g)
 {
-	for (int i = 0; i < n; i++) {
-		if (a[i] == element)
-			return true;
+	int count = 0;
+	IntList l;
+	
+	g.iterStart();
+	elem_link<IntList> *p = g.Iter();
+
+	while (p) {
+		p->inf.iterStart();
+		elem_link<int> *q = p->inf.iter();
+		
+		while (q) {
+			if (!member(q->inf, l)) {
+				l.toEnd(q->inf);
+				count++;
+			}
+			q = q->link;
+		}
+		p = p->link;
 	}
-	return false;
+	return count;
 }
 
 int main()
 {
+	IntGraph g;
 	int t;
-
 	cin >> t;
 	for (int i = 1; i <= t; i++) {
 
-		int e, index = 0;
+		int e;
 		cin >> e;
 
-		int *a = new int[e*2];
+		int x, y;
 		for (int j = 1; j <= e; j++) {
-			int x, y;
 			cin >> x >> y;
-			if (!containts(a, index, x)) {				
-        a[index] = x;
-				index++;
-			}
-			if (!containts(a, index, y)) {
-				a[index] = y;
-				index++;
-			}
+
+			if (!Point(x, g))
+				AddTop(x, g);
+			if (!Point(y, g))
+				AddTop(y, g);
+			AddRib(x, y, g);
 		}
-		cout << index << endl;
+		cout << countOfCities(g) << endl;
 	}
 
+	system("pause");
 	return 0;
 }
