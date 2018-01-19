@@ -1,22 +1,42 @@
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
+bool isTree(int *a, int n)
+{
+	int sum = 0;
+	for (int i = 0; i < n; i++)
+		sum += a[i];
+
+	if (sum / 2 == n - 1)
+		return true;
+	return false;
+}
+
 int main()
 {
-    int n;
-    cin >> n;
+	Graph g;
+	ifstream file;
+	file.open("inputfile.txt");
 
-    int sum = 0, num;
+	if (!file) {
+		cerr << "File not found!";
+		return 0;
+	}
 
-    for(int i = 1; i <= n; i++){
-        cin >> num;
-        sum += num;
-    }
+	int a, b;
+	while (!file.eof()) {
+		file >> a;
+		file >> b;
 
-    if (sum / 2 == n - 1)
-        cout << "Yes";
-    else cout << "No";
-    
-    return 0;
+		if (!Point(a, g))
+			AddTop(a, g);
+		if (!Point(b, g))
+			AddTop(b, g);
+		AddRib(a, b, g);
+	}
+
+	system("pause");
+	return 0;
 }
