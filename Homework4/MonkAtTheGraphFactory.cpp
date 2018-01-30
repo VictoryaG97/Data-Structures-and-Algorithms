@@ -332,4 +332,7 @@ int main()
 			AddTop(b, g);
 		AddRib(a, b, g);
 	}
+	cout << isTree(g) << endl;
+
+	return 0;
 }
